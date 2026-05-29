@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --taj: #8B1A1A;
+  --taj-light: #FFF5F5;
+  --sel: #4A2060;
+  --sel-light: #F8F0FF;
+  --mar: #003580;
+  --mar-light: #EEF3FF;
+  --green: #1a6b3a;
+  --green-bg: #e8f5ee;
+  --amber: #7a4f00;
+  --amber-bg: #fff8e1;
+  --orange: #b84c00;
+  --orange-bg: #fff3e0;
+  --red: #b71c1c;
+  --red-bg: #ffebee;
+  --teal: #005f5f;
+  --teal-bg: #e0f7f7;
+  --blue: #003580;
+  --blue-bg: #e8efff;
+  --border: #e8e4df;
+  --text: #1c1c1c;
+  --text-muted: #666;
+  --bg: #f6f4f0;
+  --card-bg: #ffffff;
+  --radius: 12px;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ---- Header ---- */
+.app-header {
+  background: #1c1612;
+  color: #fff;
+  padding: 1.5rem 2rem 1rem;
+}
+
+.header-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.app-header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #f5efe8;
+}
+
+.subtitle {
+  font-size: 0.82rem;
+  color: #a89880;
+  margin-top: 2px;
+  letter-spacing: 0.04em;
+}
+
+.last-updated {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: #a89880;
+  padding-top: 4px;
+}
+
+.live-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #4caf50;
+  box-shadow: 0 0 0 2px rgba(76,175,80,0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(76,175,80,0.3); }
+  50% { box-shadow: 0 0 0 5px rgba(76,175,80,0.1); }
+}
+
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stat-chip {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
+  color: #d4c8bc;
+}
+
+.stat-chip strong { color: #fff; }
+.stat-chip.green strong { color: #81c995; }
+.stat-chip.amber strong { color: #ffd54f; }
+.stat-chip.teal strong { color: #80cbc4; }
+.stat-chip.blue strong { color: #90caf9; }
+
+/* ---- Controls ---- */
+.controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.tab-btn {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.15s;
+}
+
+.tab-btn:hover { background: var(--bg); color: var(--text); }
+
+.tab-btn.active.tab-taj { background: var(--taj-light); color: var(--taj); border-color: var(--taj); }
+.tab-btn.active.tab-seleqtions { background: var(--sel-light); color: var(--sel); border-color: var(--sel); }
+.tab-btn.active.tab-marriott { background: var(--mar-light); color: var(--mar); border-color: var(--mar); }
+
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.search-input, .filter-select {
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.search-input { width: 200px; }
+.search-input:focus, .filter-select:focus { border-color: #888; }
+
+/* ---- Search params bar ---- */
+.search-params-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 2rem;
+  background: #faf9f7;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.search-params-bar strong { color: var(--text); }
+
+/* ---- Cards ---- */
+.cards-section {
+  padding: 1.5rem 2rem 3rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.hotel-card {
+  display: block;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.hotel-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+}
+
+.brand-taj { background: var(--taj-light); }
+.brand-seleqtions { background: var(--sel-light); }
+.brand-marriott { background: var(--mar-light); }
+
+.brand-pill {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.brand-taj .brand-pill { color: var(--taj); }
+.brand-seleqtions .brand-pill { color: var(--sel); }
+.brand-marriott .brand-pill { color: var(--mar); }
+
+.price-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.badge-green { background: var(--green-bg); color: var(--green); }
+.badge-amber { background: var(--amber-bg); color: var(--amber); }
+.badge-orange { background: var(--orange-bg); color: var(--orange); }
+.badge-red { background: var(--red-bg); color: var(--red); }
+
+.card-body {
+  padding: 14px 16px 16px;
+}
+
+.hotel-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.hotel-city {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.room-type {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  padding: 3px 8px;
+  background: var(--bg);
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.price-main {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+.per-night {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.marriott-pricing { margin-bottom: 4px; }
+
+.cash-alt {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.category-label {
+  font-size: 0.7rem;
+  color: var(--mar);
+  background: var(--mar-light);
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 6px;
+}
+
+/* ---- States ---- */
+.loading-screen {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--text-muted);
+}
+
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: #8B1A1A;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.error-text { color: var(--red); }
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 2;
+}
+
+/* ---- Footer ---- */
+.app-footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  background: #fff;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+  .app-header { padding: 1rem; }
+  .controls-bar { padding: 0.75rem 1rem; }
+  .cards-section { padding: 1rem; }
+  .search-input { width: 140px; }
+  .app-header h1 { font-size: 1.4rem; }
+}

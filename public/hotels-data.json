@@ -1,0 +1,37 @@
+{
+  "last_updated": "2025-05-29T06:00:00Z",
+  "search_params": {
+    "cities": ["Mumbai", "Delhi", "Bengaluru", "Hyderabad", "Chennai", "Goa", "Jaipur", "Udaipur"],
+    "check_in": "2025-06-15",
+    "check_out": "2025-06-16",
+    "guests": 2
+  },
+  "taj": [
+    { "id": "t1", "brand": "Taj", "name": "Taj Vivanta Bengaluru", "city": "Bengaluru", "price": 8200, "currency": "INR", "room_type": "Deluxe Room", "url": "https://www.tajhotels.com/en-in/vivanta/vivanta-bengaluru-residency-road/" },
+    { "id": "t2", "brand": "Taj", "name": "Taj Hotel Bengaluru", "city": "Bengaluru", "price": 17500, "currency": "INR", "room_type": "Superior Room", "url": "https://www.tajhotels.com/en-in/taj/taj-hotel-bengaluru/" },
+    { "id": "t3", "brand": "Taj", "name": "Taj Lands End Mumbai", "city": "Mumbai", "price": 12800, "currency": "INR", "room_type": "Superior Sea View", "url": "https://www.tajhotels.com/en-in/taj/taj-lands-end-mumbai/" },
+    { "id": "t4", "brand": "Taj", "name": "Taj Mahal Palace Mumbai", "city": "Mumbai", "price": 32000, "currency": "INR", "room_type": "Luxury Room", "url": "https://www.tajhotels.com/en-in/taj/the-taj-mahal-palace-mumbai/" },
+    { "id": "t5", "brand": "Taj", "name": "Taj Hotel New Delhi", "city": "Delhi", "price": 9400, "currency": "INR", "room_type": "Deluxe Room", "url": "https://www.tajhotels.com/en-in/taj/taj-hotel-new-delhi/" },
+    { "id": "t6", "brand": "Taj", "name": "Taj Falaknuma Palace", "city": "Hyderabad", "price": 28000, "currency": "INR", "room_type": "Palace Room", "url": "https://www.tajhotels.com/en-in/taj/taj-falaknuma-palace-hyderabad/" },
+    { "id": "t7", "brand": "Taj", "name": "Taj Exotica Goa", "city": "Goa", "price": 13900, "currency": "INR", "room_type": "Deluxe Room", "url": "https://www.tajhotels.com/en-in/taj/taj-exotica-resort-and-spa-goa/" },
+    { "id": "t8", "brand": "Taj", "name": "Taj Hari Mahal Jodhpur", "city": "Jodhpur", "price": 7600, "currency": "INR", "room_type": "Deluxe Room", "url": "https://www.tajhotels.com/en-in/taj/taj-hari-mahal-jodhpur/" }
+  ],
+  "seleqtions": [
+    { "id": "s1", "brand": "SeleQtions", "name": "The Connaught Delhi", "city": "Delhi", "price": 7800, "currency": "INR", "room_type": "Classic Room", "url": "https://www.tajhotels.com/en-in/seleqtions/the-connaught-new-delhi/" },
+    { "id": "s2", "brand": "SeleQtions", "name": "Gateway Hotel Bengaluru", "city": "Bengaluru", "price": 5900, "currency": "INR", "room_type": "Standard Room", "url": "https://www.tajhotels.com/en-in/seleqtions/the-gateway-hotel-residency-road-bengaluru/" },
+    { "id": "s3", "brand": "SeleQtions", "name": "Hotel Savera Chennai", "city": "Chennai", "price": 6500, "currency": "INR", "room_type": "Deluxe Room", "url": "https://www.tajhotels.com/en-in/seleqtions/hotel-savera-chennai/" },
+    { "id": "s4", "brand": "SeleQtions", "name": "Taj Rambagh Palace", "city": "Jaipur", "price": 22000, "currency": "INR", "room_type": "Palace Room", "url": "https://www.tajhotels.com/en-in/taj/rambagh-palace-jaipur/" },
+    { "id": "s5", "brand": "SeleQtions", "name": "Aditya Park Hyderabad", "city": "Hyderabad", "price": 4800, "currency": "INR", "room_type": "Executive Room", "url": "https://www.tajhotels.com/en-in/seleqtions/aditya-park-hyderabad/" },
+    { "id": "s6", "brand": "SeleQtions", "name": "Vivanta Goa Panaji", "city": "Goa", "price": 11200, "currency": "INR", "room_type": "Deluxe Room", "url": "https://www.tajhotels.com/en-in/vivanta/vivanta-goa-panaji/" }
+  ],
+  "marriott": [
+    { "id": "m1", "brand": "Marriott", "name": "JW Marriott Bengaluru", "city": "Bengaluru", "points": 25000, "cash_price": 18500, "room_type": "Deluxe Room", "category": 6, "url": "https://www.marriott.com/hotels/travel/blrjw-jw-marriott-hotel-bengaluru/" },
+    { "id": "m2", "brand": "Marriott", "name": "Courtyard Bengaluru ORR", "city": "Bengaluru", "points": 12000, "cash_price": 7200, "room_type": "Standard King", "category": 3, "url": "https://www.marriott.com/hotels/travel/blrcy-courtyard-bengaluru-outer-ring-road/" },
+    { "id": "m3", "brand": "Marriott", "name": "Westin Mumbai Powai Lake", "city": "Mumbai", "points": 19000, "cash_price": 12000, "room_type": "Heavenly King", "category": 5, "url": "https://www.marriott.com/hotels/travel/bomwi-the-westin-mumbai-powai-lake/" },
+    { "id": "m4", "brand": "Marriott", "name": "Sheraton Hyderabad", "city": "Hyderabad", "points": 8000, "cash_price": 5800, "room_type": "Classic Room", "category": 2, "url": "https://www.marriott.com/hotels/travel/hydsi-sheraton-hyderabad-hotel/" },
+    { "id": "m5", "brand": "Marriott", "name": "Marriott Goa Resort & Spa", "city": "Goa", "points": 16000, "cash_price": 10500, "room_type": "Deluxe Ocean View", "category": 4, "url": "https://www.marriott.com/hotels/travel/goamt-goa-marriott-resort-and-spa/" },
+    { "id": "m6", "brand": "Marriott", "name": "Fairfield Bengaluru Rajajinagar", "city": "Bengaluru", "points": 7500, "cash_price": 4200, "room_type": "Standard Room", "category": 2, "url": "https://www.marriott.com/hotels/travel/blrfi-fairfield-bengaluru-rajajinagar/" },
+    { "id": "m7", "brand": "Marriott", "name": "Le Méridien New Delhi", "city": "Delhi", "points": 22000, "cash_price": 15000, "room_type": "Superior Room", "category": 5, "url": "https://www.marriott.com/hotels/travel/delmd-le-meridien-new-delhi/" },
+    { "id": "m8", "brand": "Marriott", "name": "Four Points Sheraton Jaipur", "city": "Jaipur", "points": 9500, "cash_price": 6000, "room_type": "Deluxe Room", "category": 2, "url": "https://www.marriott.com/hotels/travel/jaifp-four-points-jaipur/" }
+  ]
+}

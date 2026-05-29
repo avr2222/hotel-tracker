@@ -1,0 +1,14 @@
+{
+  "name": "hotel-tracker-scraper",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "scrape": "node scrape.js",
+    "email": "node send-email.js",
+    "run-all": "node scrape.js && node send-email.js"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.0",
+    "playwright": "^1.40.0"
+  }
+}

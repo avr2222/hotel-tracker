@@ -1,0 +1,84 @@
+name: Daily Hotel Scrape & Deploy
+
+on:
+  schedule:
+    # Runs every day at 6:00 AM IST (12:30 AM UTC)
+    - cron: '30 0 * * *'
+  workflow_dispatch: # Allow manual trigger from GitHub Actions UI
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  scrape-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: scraper/package.json
+
+      - name: Install scraper dependencies
+        working-directory: scraper
+        run: npm install
+
+      - name: Install Playwright browsers
+        working-directory: scraper
+        run: npx playwright install chromium --with-deps
+
+      - name: Run scraper
+        working-directory: scraper
+        env:
+          # Set these as GitHub Secrets in your repo settings
+          CHECK_IN: ${{ vars.CHECK_IN || '' }}   # Optional: override dates
+          CHECK_OUT: ${{ vars.CHECK_OUT || '' }}
+        run: node scrape.js
+        # If scraper fails (site blocked etc.), we continue with existing data
+        continue-on-error: true
+
+      - name: Commit updated hotels-data.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/hotels-data.json
+          git diff --staged --quiet || git commit -m "chore: update hotel data $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
+
+      - name: Send email digest
+        working-directory: scraper
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          WEBAPP_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+        run: node send-email.js
+
+      # ── Build & Deploy React app to GitHub Pages ──
+      - name: Install React app dependencies
+        run: npm install
+
+      - name: Build React app
+        run: npm run build
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
