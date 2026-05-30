@@ -59,7 +59,7 @@ export default function App() {
   // --- filtered sets ---
   const filterTaj = (hotels: TajHotel[]) =>
     hotels.filter(h => {
-      const priceOk = priceFilter === 0 || h.price < priceFilter
+      const priceOk = priceFilter === 0 || h.cheapest_price < priceFilter
       const cityOk = cityFilter === 'All Cities' || h.city === cityFilter
       const searchOk = !searchQuery || h.name.toLowerCase().includes(searchQuery.toLowerCase()) || h.city.toLowerCase().includes(searchQuery.toLowerCase())
       return priceOk && cityOk && searchOk
@@ -67,7 +67,7 @@ export default function App() {
 
   const filterMarriott = (hotels: MarriottHotel[]) =>
     hotels.filter(h => {
-      const ptsOk = pointsFilter === 0 || h.points < pointsFilter
+      const ptsOk = pointsFilter === 0 || h.cheapest_points < pointsFilter
       const cityOk = cityFilter === 'All Cities' || h.city === cityFilter
       const searchOk = !searchQuery || h.name.toLowerCase().includes(searchQuery.toLowerCase()) || h.city.toLowerCase().includes(searchQuery.toLowerCase())
       return ptsOk && cityOk && searchOk
@@ -77,13 +77,15 @@ export default function App() {
   const selFiltered = filterTaj(data.seleqtions)
   const marFiltered = filterMarriott(data.marriott)
 
-  // summary counts
-  const tajUnder10 = data.taj.filter(h => h.price < 10000).length
-  const tajUnder15 = data.taj.filter(h => h.price < 15000).length
-  const selUnder10 = data.seleqtions.filter(h => h.price < 10000).length
-  const selUnder15 = data.seleqtions.filter(h => h.price < 15000).length
-  const marUnder10k = data.marriott.filter(h => h.points < 10000).length
-  const marUnder15k = data.marriott.filter(h => h.points < 15000).length
+  // summary counts based on cheapest price across all checked dates
+  const tajUnder10 = data.taj.filter(h => h.cheapest_price < 10000).length
+  const tajUnder15 = data.taj.filter(h => h.cheapest_price < 15000).length
+  const selUnder10 = data.seleqtions.filter(h => h.cheapest_price < 10000).length
+  const selUnder15 = data.seleqtions.filter(h => h.cheapest_price < 15000).length
+  const marUnder10k = data.marriott.filter(h => h.cheapest_points < 10000).length
+  const marUnder15k = data.marriott.filter(h => h.cheapest_points < 15000).length
+
+  const { date_range, days_ahead, guests } = data.search_params
 
   return (
     <div className="app">
@@ -91,7 +93,7 @@ export default function App() {
         <div className="header-inner">
           <div className="header-title">
             <h1>🏨 Hotel Deals Tracker</h1>
-            <p className="subtitle">Taj · SeleQtions · Marriott Bonvoy — updated daily</p>
+            <p className="subtitle">Taj · SeleQtions · Marriott Bonvoy — best price across {days_ahead} nights</p>
           </div>
           <div className="last-updated">
             <span className="live-dot" />
@@ -150,10 +152,10 @@ export default function App() {
 
       {/* Search params banner */}
       <div className="search-params-bar">
-        <span>🔍 Scraped for:</span>
-        <strong>{data.search_params.check_in} → {data.search_params.check_out}</strong>
+        <span>🔍 Checked {days_ahead} nights:</span>
+        <strong>{date_range.from} → {date_range.to}</strong>
         <span>·</span>
-        <strong>{data.search_params.guests} guests</strong>
+        <strong>{guests} guests</strong>
         <span>·</span>
         <span>{data.search_params.cities.join(', ')}</span>
       </div>

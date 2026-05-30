@@ -1,37 +1,409 @@
 {
-  "last_updated": "2025-05-29T06:00:00Z",
+  "last_updated": "2026-05-29T06:00:00Z",
   "search_params": {
-    "cities": ["Mumbai", "Delhi", "Bengaluru", "Hyderabad", "Chennai", "Goa", "Jaipur", "Udaipur"],
-    "check_in": "2025-06-15",
-    "check_out": "2025-06-16",
+    "cities": ["Mumbai", "Delhi", "Bengaluru", "Hyderabad", "Chennai", "Goa", "Jaipur"],
+    "date_range": { "from": "2026-05-30", "to": "2026-06-12" },
+    "days_ahead": 14,
     "guests": 2
   },
   "taj": [
-    { "id": "t1", "brand": "Taj", "name": "Taj Vivanta Bengaluru", "city": "Bengaluru", "price": 8200, "currency": "INR", "room_type": "Deluxe Room", "url": "https://www.tajhotels.com/en-in/vivanta/vivanta-bengaluru-residency-road/" },
-    { "id": "t2", "brand": "Taj", "name": "Taj Hotel Bengaluru", "city": "Bengaluru", "price": 17500, "currency": "INR", "room_type": "Superior Room", "url": "https://www.tajhotels.com/en-in/taj/taj-hotel-bengaluru/" },
-    { "id": "t3", "brand": "Taj", "name": "Taj Lands End Mumbai", "city": "Mumbai", "price": 12800, "currency": "INR", "room_type": "Superior Sea View", "url": "https://www.tajhotels.com/en-in/taj/taj-lands-end-mumbai/" },
-    { "id": "t4", "brand": "Taj", "name": "Taj Mahal Palace Mumbai", "city": "Mumbai", "price": 32000, "currency": "INR", "room_type": "Luxury Room", "url": "https://www.tajhotels.com/en-in/taj/the-taj-mahal-palace-mumbai/" },
-    { "id": "t5", "brand": "Taj", "name": "Taj Hotel New Delhi", "city": "Delhi", "price": 9400, "currency": "INR", "room_type": "Deluxe Room", "url": "https://www.tajhotels.com/en-in/taj/taj-hotel-new-delhi/" },
-    { "id": "t6", "brand": "Taj", "name": "Taj Falaknuma Palace", "city": "Hyderabad", "price": 28000, "currency": "INR", "room_type": "Palace Room", "url": "https://www.tajhotels.com/en-in/taj/taj-falaknuma-palace-hyderabad/" },
-    { "id": "t7", "brand": "Taj", "name": "Taj Exotica Goa", "city": "Goa", "price": 13900, "currency": "INR", "room_type": "Deluxe Room", "url": "https://www.tajhotels.com/en-in/taj/taj-exotica-resort-and-spa-goa/" },
-    { "id": "t8", "brand": "Taj", "name": "Taj Hari Mahal Jodhpur", "city": "Jodhpur", "price": 7600, "currency": "INR", "room_type": "Deluxe Room", "url": "https://www.tajhotels.com/en-in/taj/taj-hari-mahal-jodhpur/" }
+    {
+      "id": "t_bengaluru_0",
+      "brand": "Taj",
+      "name": "Taj Vivanta Bengaluru",
+      "city": "Bengaluru",
+      "cheapest_price": 7400,
+      "cheapest_date": "2026-06-09",
+      "currency": "INR",
+      "room_type": "Deluxe Room",
+      "url": "https://www.tajhotels.com/en-in/vivanta/vivanta-bengaluru-residency-road/",
+      "prices": [
+        { "date": "2026-05-30", "price": 8200, "room_type": "Deluxe Room" },
+        { "date": "2026-05-31", "price": 9100, "room_type": "Deluxe Room" },
+        { "date": "2026-06-01", "price": 8800, "room_type": "Deluxe Room" },
+        { "date": "2026-06-06", "price": 7900, "room_type": "Deluxe Room" },
+        { "date": "2026-06-07", "price": 9500, "room_type": "Deluxe Room" },
+        { "date": "2026-06-08", "price": 9200, "room_type": "Deluxe Room" },
+        { "date": "2026-06-09", "price": 7400, "room_type": "Deluxe Room" },
+        { "date": "2026-06-10", "price": 7800, "room_type": "Deluxe Room" }
+      ]
+    },
+    {
+      "id": "t_bengaluru_1",
+      "brand": "Taj",
+      "name": "Taj Hotel Bengaluru",
+      "city": "Bengaluru",
+      "cheapest_price": 15200,
+      "cheapest_date": "2026-06-09",
+      "currency": "INR",
+      "room_type": "Superior Room",
+      "url": "https://www.tajhotels.com/en-in/taj/taj-hotel-bengaluru/",
+      "prices": [
+        { "date": "2026-05-30", "price": 17500, "room_type": "Superior Room" },
+        { "date": "2026-05-31", "price": 18200, "room_type": "Superior Room" },
+        { "date": "2026-06-06", "price": 16800, "room_type": "Superior Room" },
+        { "date": "2026-06-07", "price": 19000, "room_type": "Superior Room" },
+        { "date": "2026-06-09", "price": 15200, "room_type": "Superior Room" },
+        { "date": "2026-06-10", "price": 15900, "room_type": "Superior Room" }
+      ]
+    },
+    {
+      "id": "t_mumbai_0",
+      "brand": "Taj",
+      "name": "Taj Lands End Mumbai",
+      "city": "Mumbai",
+      "cheapest_price": 11500,
+      "cheapest_date": "2026-06-09",
+      "currency": "INR",
+      "room_type": "Superior Sea View",
+      "url": "https://www.tajhotels.com/en-in/taj/taj-lands-end-mumbai/",
+      "prices": [
+        { "date": "2026-05-30", "price": 12800, "room_type": "Superior Sea View" },
+        { "date": "2026-05-31", "price": 14200, "room_type": "Superior Sea View" },
+        { "date": "2026-06-06", "price": 13100, "room_type": "Superior Sea View" },
+        { "date": "2026-06-07", "price": 15000, "room_type": "Superior Sea View" },
+        { "date": "2026-06-09", "price": 11500, "room_type": "Superior Sea View" },
+        { "date": "2026-06-10", "price": 12000, "room_type": "Superior Sea View" }
+      ]
+    },
+    {
+      "id": "t_mumbai_1",
+      "brand": "Taj",
+      "name": "Taj Mahal Palace Mumbai",
+      "city": "Mumbai",
+      "cheapest_price": 28500,
+      "cheapest_date": "2026-06-10",
+      "currency": "INR",
+      "room_type": "Luxury Room",
+      "url": "https://www.tajhotels.com/en-in/taj/the-taj-mahal-palace-mumbai/",
+      "prices": [
+        { "date": "2026-05-30", "price": 32000, "room_type": "Luxury Room" },
+        { "date": "2026-05-31", "price": 35000, "room_type": "Luxury Room" },
+        { "date": "2026-06-06", "price": 31000, "room_type": "Luxury Room" },
+        { "date": "2026-06-07", "price": 36000, "room_type": "Luxury Room" },
+        { "date": "2026-06-09", "price": 29000, "room_type": "Luxury Room" },
+        { "date": "2026-06-10", "price": 28500, "room_type": "Luxury Room" }
+      ]
+    },
+    {
+      "id": "t_delhi_0",
+      "brand": "Taj",
+      "name": "Taj Hotel New Delhi",
+      "city": "Delhi",
+      "cheapest_price": 8100,
+      "cheapest_date": "2026-06-09",
+      "currency": "INR",
+      "room_type": "Deluxe Room",
+      "url": "https://www.tajhotels.com/en-in/taj/taj-hotel-new-delhi/",
+      "prices": [
+        { "date": "2026-05-30", "price": 9400, "room_type": "Deluxe Room" },
+        { "date": "2026-05-31", "price": 10200, "room_type": "Deluxe Room" },
+        { "date": "2026-06-06", "price": 9100, "room_type": "Deluxe Room" },
+        { "date": "2026-06-07", "price": 10800, "room_type": "Deluxe Room" },
+        { "date": "2026-06-09", "price": 8100, "room_type": "Deluxe Room" },
+        { "date": "2026-06-10", "price": 8600, "room_type": "Deluxe Room" }
+      ]
+    },
+    {
+      "id": "t_hyderabad_0",
+      "brand": "Taj",
+      "name": "Taj Falaknuma Palace",
+      "city": "Hyderabad",
+      "cheapest_price": 24500,
+      "cheapest_date": "2026-06-09",
+      "currency": "INR",
+      "room_type": "Palace Room",
+      "url": "https://www.tajhotels.com/en-in/taj/taj-falaknuma-palace-hyderabad/",
+      "prices": [
+        { "date": "2026-05-30", "price": 28000, "room_type": "Palace Room" },
+        { "date": "2026-05-31", "price": 30000, "room_type": "Palace Room" },
+        { "date": "2026-06-06", "price": 27000, "room_type": "Palace Room" },
+        { "date": "2026-06-09", "price": 24500, "room_type": "Palace Room" },
+        { "date": "2026-06-10", "price": 25000, "room_type": "Palace Room" }
+      ]
+    },
+    {
+      "id": "t_goa_0",
+      "brand": "Taj",
+      "name": "Taj Exotica Goa",
+      "city": "Goa",
+      "cheapest_price": 11800,
+      "cheapest_date": "2026-06-09",
+      "currency": "INR",
+      "room_type": "Deluxe Room",
+      "url": "https://www.tajhotels.com/en-in/taj/taj-exotica-resort-and-spa-goa/",
+      "prices": [
+        { "date": "2026-05-30", "price": 13900, "room_type": "Deluxe Room" },
+        { "date": "2026-05-31", "price": 15200, "room_type": "Deluxe Room" },
+        { "date": "2026-06-06", "price": 13500, "room_type": "Deluxe Room" },
+        { "date": "2026-06-09", "price": 11800, "room_type": "Deluxe Room" },
+        { "date": "2026-06-10", "price": 12400, "room_type": "Deluxe Room" }
+      ]
+    }
   ],
   "seleqtions": [
-    { "id": "s1", "brand": "SeleQtions", "name": "The Connaught Delhi", "city": "Delhi", "price": 7800, "currency": "INR", "room_type": "Classic Room", "url": "https://www.tajhotels.com/en-in/seleqtions/the-connaught-new-delhi/" },
-    { "id": "s2", "brand": "SeleQtions", "name": "Gateway Hotel Bengaluru", "city": "Bengaluru", "price": 5900, "currency": "INR", "room_type": "Standard Room", "url": "https://www.tajhotels.com/en-in/seleqtions/the-gateway-hotel-residency-road-bengaluru/" },
-    { "id": "s3", "brand": "SeleQtions", "name": "Hotel Savera Chennai", "city": "Chennai", "price": 6500, "currency": "INR", "room_type": "Deluxe Room", "url": "https://www.tajhotels.com/en-in/seleqtions/hotel-savera-chennai/" },
-    { "id": "s4", "brand": "SeleQtions", "name": "Taj Rambagh Palace", "city": "Jaipur", "price": 22000, "currency": "INR", "room_type": "Palace Room", "url": "https://www.tajhotels.com/en-in/taj/rambagh-palace-jaipur/" },
-    { "id": "s5", "brand": "SeleQtions", "name": "Aditya Park Hyderabad", "city": "Hyderabad", "price": 4800, "currency": "INR", "room_type": "Executive Room", "url": "https://www.tajhotels.com/en-in/seleqtions/aditya-park-hyderabad/" },
-    { "id": "s6", "brand": "SeleQtions", "name": "Vivanta Goa Panaji", "city": "Goa", "price": 11200, "currency": "INR", "room_type": "Deluxe Room", "url": "https://www.tajhotels.com/en-in/vivanta/vivanta-goa-panaji/" }
+    {
+      "id": "t_delhi_0",
+      "brand": "SeleQtions",
+      "name": "The Connaught Delhi",
+      "city": "Delhi",
+      "cheapest_price": 6500,
+      "cheapest_date": "2026-06-09",
+      "currency": "INR",
+      "room_type": "Classic Room",
+      "url": "https://www.tajhotels.com/en-in/seleqtions/the-connaught-new-delhi/",
+      "prices": [
+        { "date": "2026-05-30", "price": 7800, "room_type": "Classic Room" },
+        { "date": "2026-05-31", "price": 8400, "room_type": "Classic Room" },
+        { "date": "2026-06-06", "price": 7200, "room_type": "Classic Room" },
+        { "date": "2026-06-09", "price": 6500, "room_type": "Classic Room" },
+        { "date": "2026-06-10", "price": 6900, "room_type": "Classic Room" }
+      ]
+    },
+    {
+      "id": "t_bengaluru_0",
+      "brand": "SeleQtions",
+      "name": "Gateway Hotel Bengaluru",
+      "city": "Bengaluru",
+      "cheapest_price": 4800,
+      "cheapest_date": "2026-06-09",
+      "currency": "INR",
+      "room_type": "Standard Room",
+      "url": "https://www.tajhotels.com/en-in/seleqtions/the-gateway-hotel-residency-road-bengaluru/",
+      "prices": [
+        { "date": "2026-05-30", "price": 5900, "room_type": "Standard Room" },
+        { "date": "2026-05-31", "price": 6500, "room_type": "Standard Room" },
+        { "date": "2026-06-06", "price": 5600, "room_type": "Standard Room" },
+        { "date": "2026-06-09", "price": 4800, "room_type": "Standard Room" },
+        { "date": "2026-06-10", "price": 5100, "room_type": "Standard Room" }
+      ]
+    },
+    {
+      "id": "t_chennai_0",
+      "brand": "SeleQtions",
+      "name": "Hotel Savera Chennai",
+      "city": "Chennai",
+      "cheapest_price": 5200,
+      "cheapest_date": "2026-06-09",
+      "currency": "INR",
+      "room_type": "Deluxe Room",
+      "url": "https://www.tajhotels.com/en-in/seleqtions/hotel-savera-chennai/",
+      "prices": [
+        { "date": "2026-05-30", "price": 6500, "room_type": "Deluxe Room" },
+        { "date": "2026-05-31", "price": 7100, "room_type": "Deluxe Room" },
+        { "date": "2026-06-06", "price": 6200, "room_type": "Deluxe Room" },
+        { "date": "2026-06-09", "price": 5200, "room_type": "Deluxe Room" },
+        { "date": "2026-06-10", "price": 5700, "room_type": "Deluxe Room" }
+      ]
+    },
+    {
+      "id": "t_jaipur_0",
+      "brand": "SeleQtions",
+      "name": "Taj Rambagh Palace",
+      "city": "Jaipur",
+      "cheapest_price": 18500,
+      "cheapest_date": "2026-06-09",
+      "currency": "INR",
+      "room_type": "Palace Room",
+      "url": "https://www.tajhotels.com/en-in/taj/rambagh-palace-jaipur/",
+      "prices": [
+        { "date": "2026-05-30", "price": 22000, "room_type": "Palace Room" },
+        { "date": "2026-05-31", "price": 24000, "room_type": "Palace Room" },
+        { "date": "2026-06-06", "price": 21000, "room_type": "Palace Room" },
+        { "date": "2026-06-09", "price": 18500, "room_type": "Palace Room" },
+        { "date": "2026-06-10", "price": 19200, "room_type": "Palace Room" }
+      ]
+    },
+    {
+      "id": "t_hyderabad_0",
+      "brand": "SeleQtions",
+      "name": "Aditya Park Hyderabad",
+      "city": "Hyderabad",
+      "cheapest_price": 3900,
+      "cheapest_date": "2026-06-09",
+      "currency": "INR",
+      "room_type": "Executive Room",
+      "url": "https://www.tajhotels.com/en-in/seleqtions/aditya-park-hyderabad/",
+      "prices": [
+        { "date": "2026-05-30", "price": 4800, "room_type": "Executive Room" },
+        { "date": "2026-05-31", "price": 5200, "room_type": "Executive Room" },
+        { "date": "2026-06-06", "price": 4500, "room_type": "Executive Room" },
+        { "date": "2026-06-09", "price": 3900, "room_type": "Executive Room" },
+        { "date": "2026-06-10", "price": 4100, "room_type": "Executive Room" }
+      ]
+    },
+    {
+      "id": "t_goa_0",
+      "brand": "SeleQtions",
+      "name": "Vivanta Goa Panaji",
+      "city": "Goa",
+      "cheapest_price": 9200,
+      "cheapest_date": "2026-06-09",
+      "currency": "INR",
+      "room_type": "Deluxe Room",
+      "url": "https://www.tajhotels.com/en-in/vivanta/vivanta-goa-panaji/",
+      "prices": [
+        { "date": "2026-05-30", "price": 11200, "room_type": "Deluxe Room" },
+        { "date": "2026-05-31", "price": 12500, "room_type": "Deluxe Room" },
+        { "date": "2026-06-06", "price": 10800, "room_type": "Deluxe Room" },
+        { "date": "2026-06-09", "price": 9200, "room_type": "Deluxe Room" },
+        { "date": "2026-06-10", "price": 9800, "room_type": "Deluxe Room" }
+      ]
+    }
   ],
   "marriott": [
-    { "id": "m1", "brand": "Marriott", "name": "JW Marriott Bengaluru", "city": "Bengaluru", "points": 25000, "cash_price": 18500, "room_type": "Deluxe Room", "category": 6, "url": "https://www.marriott.com/hotels/travel/blrjw-jw-marriott-hotel-bengaluru/" },
-    { "id": "m2", "brand": "Marriott", "name": "Courtyard Bengaluru ORR", "city": "Bengaluru", "points": 12000, "cash_price": 7200, "room_type": "Standard King", "category": 3, "url": "https://www.marriott.com/hotels/travel/blrcy-courtyard-bengaluru-outer-ring-road/" },
-    { "id": "m3", "brand": "Marriott", "name": "Westin Mumbai Powai Lake", "city": "Mumbai", "points": 19000, "cash_price": 12000, "room_type": "Heavenly King", "category": 5, "url": "https://www.marriott.com/hotels/travel/bomwi-the-westin-mumbai-powai-lake/" },
-    { "id": "m4", "brand": "Marriott", "name": "Sheraton Hyderabad", "city": "Hyderabad", "points": 8000, "cash_price": 5800, "room_type": "Classic Room", "category": 2, "url": "https://www.marriott.com/hotels/travel/hydsi-sheraton-hyderabad-hotel/" },
-    { "id": "m5", "brand": "Marriott", "name": "Marriott Goa Resort & Spa", "city": "Goa", "points": 16000, "cash_price": 10500, "room_type": "Deluxe Ocean View", "category": 4, "url": "https://www.marriott.com/hotels/travel/goamt-goa-marriott-resort-and-spa/" },
-    { "id": "m6", "brand": "Marriott", "name": "Fairfield Bengaluru Rajajinagar", "city": "Bengaluru", "points": 7500, "cash_price": 4200, "room_type": "Standard Room", "category": 2, "url": "https://www.marriott.com/hotels/travel/blrfi-fairfield-bengaluru-rajajinagar/" },
-    { "id": "m7", "brand": "Marriott", "name": "Le Méridien New Delhi", "city": "Delhi", "points": 22000, "cash_price": 15000, "room_type": "Superior Room", "category": 5, "url": "https://www.marriott.com/hotels/travel/delmd-le-meridien-new-delhi/" },
-    { "id": "m8", "brand": "Marriott", "name": "Four Points Sheraton Jaipur", "city": "Jaipur", "points": 9500, "cash_price": 6000, "room_type": "Deluxe Room", "category": 2, "url": "https://www.marriott.com/hotels/travel/jaifp-four-points-jaipur/" }
+    {
+      "id": "m_bengaluru_0",
+      "brand": "Marriott",
+      "name": "JW Marriott Bengaluru",
+      "city": "Bengaluru",
+      "cheapest_cash_price": 15800,
+      "cheapest_points": 25000,
+      "cheapest_date": "2026-06-09",
+      "room_type": "Deluxe Room",
+      "category": 6,
+      "url": "https://www.marriott.com/hotels/travel/blrjw-jw-marriott-hotel-bengaluru/",
+      "prices": [
+        { "date": "2026-05-30", "cash_price": 18500, "points": 25000 },
+        { "date": "2026-05-31", "cash_price": 20000, "points": 25000 },
+        { "date": "2026-06-06", "cash_price": 17200, "points": 25000 },
+        { "date": "2026-06-07", "cash_price": 21000, "points": 25000 },
+        { "date": "2026-06-09", "cash_price": 15800, "points": 25000 },
+        { "date": "2026-06-10", "cash_price": 16500, "points": 25000 }
+      ]
+    },
+    {
+      "id": "m_bengaluru_1",
+      "brand": "Marriott",
+      "name": "Courtyard Bengaluru ORR",
+      "city": "Bengaluru",
+      "cheapest_cash_price": 5900,
+      "cheapest_points": 12000,
+      "cheapest_date": "2026-06-09",
+      "room_type": "Standard King",
+      "category": 3,
+      "url": "https://www.marriott.com/hotels/travel/blrcy-courtyard-bengaluru-outer-ring-road/",
+      "prices": [
+        { "date": "2026-05-30", "cash_price": 7200, "points": 12000 },
+        { "date": "2026-05-31", "cash_price": 7900, "points": 12000 },
+        { "date": "2026-06-06", "cash_price": 6800, "points": 12000 },
+        { "date": "2026-06-09", "cash_price": 5900, "points": 12000 },
+        { "date": "2026-06-10", "cash_price": 6200, "points": 12000 }
+      ]
+    },
+    {
+      "id": "m_mumbai_0",
+      "brand": "Marriott",
+      "name": "Westin Mumbai Powai Lake",
+      "city": "Mumbai",
+      "cheapest_cash_price": 9800,
+      "cheapest_points": 19000,
+      "cheapest_date": "2026-06-09",
+      "room_type": "Heavenly King",
+      "category": 5,
+      "url": "https://www.marriott.com/hotels/travel/bomwi-the-westin-mumbai-powai-lake/",
+      "prices": [
+        { "date": "2026-05-30", "cash_price": 12000, "points": 19000 },
+        { "date": "2026-05-31", "cash_price": 13500, "points": 19000 },
+        { "date": "2026-06-06", "cash_price": 11200, "points": 19000 },
+        { "date": "2026-06-09", "cash_price": 9800, "points": 19000 },
+        { "date": "2026-06-10", "cash_price": 10400, "points": 19000 }
+      ]
+    },
+    {
+      "id": "m_hyderabad_0",
+      "brand": "Marriott",
+      "name": "Sheraton Hyderabad",
+      "city": "Hyderabad",
+      "cheapest_cash_price": 4600,
+      "cheapest_points": 8000,
+      "cheapest_date": "2026-06-09",
+      "room_type": "Classic Room",
+      "category": 2,
+      "url": "https://www.marriott.com/hotels/travel/hydsi-sheraton-hyderabad-hotel/",
+      "prices": [
+        { "date": "2026-05-30", "cash_price": 5800, "points": 8000 },
+        { "date": "2026-05-31", "cash_price": 6400, "points": 8000 },
+        { "date": "2026-06-06", "cash_price": 5400, "points": 8000 },
+        { "date": "2026-06-09", "cash_price": 4600, "points": 8000 },
+        { "date": "2026-06-10", "cash_price": 4900, "points": 8000 }
+      ]
+    },
+    {
+      "id": "m_goa_0",
+      "brand": "Marriott",
+      "name": "Marriott Goa Resort & Spa",
+      "city": "Goa",
+      "cheapest_cash_price": 8500,
+      "cheapest_points": 16000,
+      "cheapest_date": "2026-06-09",
+      "room_type": "Deluxe Ocean View",
+      "category": 4,
+      "url": "https://www.marriott.com/hotels/travel/goamt-goa-marriott-resort-and-spa/",
+      "prices": [
+        { "date": "2026-05-30", "cash_price": 10500, "points": 16000 },
+        { "date": "2026-05-31", "cash_price": 12000, "points": 16000 },
+        { "date": "2026-06-06", "cash_price": 9800, "points": 16000 },
+        { "date": "2026-06-09", "cash_price": 8500, "points": 16000 },
+        { "date": "2026-06-10", "cash_price": 9100, "points": 16000 }
+      ]
+    },
+    {
+      "id": "m_bengaluru_2",
+      "brand": "Marriott",
+      "name": "Fairfield Bengaluru Rajajinagar",
+      "city": "Bengaluru",
+      "cheapest_cash_price": 3400,
+      "cheapest_points": 7500,
+      "cheapest_date": "2026-06-09",
+      "room_type": "Standard Room",
+      "category": 2,
+      "url": "https://www.marriott.com/hotels/travel/blrfi-fairfield-bengaluru-rajajinagar/",
+      "prices": [
+        { "date": "2026-05-30", "cash_price": 4200, "points": 7500 },
+        { "date": "2026-05-31", "cash_price": 4700, "points": 7500 },
+        { "date": "2026-06-06", "cash_price": 3900, "points": 7500 },
+        { "date": "2026-06-09", "cash_price": 3400, "points": 7500 },
+        { "date": "2026-06-10", "cash_price": 3600, "points": 7500 }
+      ]
+    },
+    {
+      "id": "m_delhi_0",
+      "brand": "Marriott",
+      "name": "Le Méridien New Delhi",
+      "city": "Delhi",
+      "cheapest_cash_price": 12200,
+      "cheapest_points": 22000,
+      "cheapest_date": "2026-06-09",
+      "room_type": "Superior Room",
+      "category": 5,
+      "url": "https://www.marriott.com/hotels/travel/delmd-le-meridien-new-delhi/",
+      "prices": [
+        { "date": "2026-05-30", "cash_price": 15000, "points": 22000 },
+        { "date": "2026-05-31", "cash_price": 16500, "points": 22000 },
+        { "date": "2026-06-06", "cash_price": 14000, "points": 22000 },
+        { "date": "2026-06-09", "cash_price": 12200, "points": 22000 },
+        { "date": "2026-06-10", "cash_price": 12800, "points": 22000 }
+      ]
+    },
+    {
+      "id": "m_jaipur_0",
+      "brand": "Marriott",
+      "name": "Four Points Sheraton Jaipur",
+      "city": "Jaipur",
+      "cheapest_cash_price": 4800,
+      "cheapest_points": 9500,
+      "cheapest_date": "2026-06-09",
+      "room_type": "Deluxe Room",
+      "category": 2,
+      "url": "https://www.marriott.com/hotels/travel/jaifp-four-points-jaipur/",
+      "prices": [
+        { "date": "2026-05-30", "cash_price": 6000, "points": 9500 },
+        { "date": "2026-05-31", "cash_price": 6700, "points": 9500 },
+        { "date": "2026-06-06", "cash_price": 5600, "points": 9500 },
+        { "date": "2026-06-09", "cash_price": 4800, "points": 9500 },
+        { "date": "2026-06-10", "cash_price": 5100, "points": 9500 }
+      ]
+    }
   ]
 }

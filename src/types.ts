@@ -1,12 +1,26 @@
+export interface PriceEntry {
+  date: string
+  price: number
+  room_type: string
+}
+
+export interface MarriottPriceEntry {
+  date: string
+  cash_price: number
+  points: number
+}
+
 export interface TajHotel {
   id: string
   brand: 'Taj' | 'SeleQtions'
   name: string
   city: string
-  price: number
+  cheapest_price: number
+  cheapest_date: string
   currency: string
   room_type: string
   url: string
+  prices: PriceEntry[]
 }
 
 export interface MarriottHotel {
@@ -14,17 +28,19 @@ export interface MarriottHotel {
   brand: 'Marriott'
   name: string
   city: string
-  points: number
-  cash_price: number
+  cheapest_cash_price: number
+  cheapest_points: number
+  cheapest_date: string
   room_type: string
   category: number
   url: string
+  prices: MarriottPriceEntry[]
 }
 
 export interface SearchParams {
   cities: string[]
-  check_in: string
-  check_out: string
+  date_range: { from: string; to: string }
+  days_ahead: number
   guests: number
 }
 

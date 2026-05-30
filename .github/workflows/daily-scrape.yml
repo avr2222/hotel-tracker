@@ -40,12 +40,19 @@ jobs:
       - name: Run scraper
         working-directory: scraper
         env:
-          # Set these as GitHub Secrets in your repo settings
-          CHECK_IN: ${{ vars.CHECK_IN || '' }}   # Optional: override dates
-          CHECK_OUT: ${{ vars.CHECK_OUT || '' }}
+          # How many future nights to check per hotel (default 14)
+          DAYS_AHEAD: ${{ vars.DAYS_AHEAD || '14' }}
         run: node scrape.js
         # If scraper fails (site blocked etc.), we continue with existing data
         continue-on-error: true
+
+      - name: Upload debug screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraper-debug-screenshots
+          path: scraper/debug-taj-*.png
+          if-no-files-found: ignore
 
       - name: Commit updated hotels-data.json
         run: |
