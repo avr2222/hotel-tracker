@@ -24,19 +24,19 @@ const WEBAPP_URL = process.env.WEBAPP_URL || 'https://YOUR_GITHUB_USERNAME.githu
 const data = JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8'))
 
 // ── Price / Points tiers ─────────────────────────────────────────────────────
-const tajUnder10k   = [...data.taj, ...data.seleqtions].filter(h => h.price < 10000).sort((a, b) => a.price - b.price)
-const tajUnder15k   = [...data.taj, ...data.seleqtions].filter(h => h.price >= 10000 && h.price < 15000).sort((a, b) => a.price - b.price)
+const tajUnder10k   = [...data.taj, ...data.seleqtions].filter(h => h.cheapest_price < 10000).sort((a, b) => a.cheapest_price - b.cheapest_price)
+const tajUnder15k   = [...data.taj, ...data.seleqtions].filter(h => h.cheapest_price >= 10000 && h.cheapest_price < 15000).sort((a, b) => a.cheapest_price - b.cheapest_price)
 
-const marUnder10k   = data.marriott.filter(h => h.points < 10000).sort((a, b) => a.points - b.points)
-const marUnder15k   = data.marriott.filter(h => h.points >= 10000 && h.points < 15000).sort((a, b) => a.points - b.points)
-const marUnder20k   = data.marriott.filter(h => h.points >= 15000 && h.points < 20000).sort((a, b) => a.points - b.points)
+const marUnder10k   = data.marriott.filter(h => h.cheapest_points < 10000).sort((a, b) => a.cheapest_points - b.cheapest_points)
+const marUnder15k   = data.marriott.filter(h => h.cheapest_points >= 10000 && h.cheapest_points < 15000).sort((a, b) => a.cheapest_points - b.cheapest_points)
+const marUnder20k   = data.marriott.filter(h => h.cheapest_points >= 15000 && h.cheapest_points < 20000).sort((a, b) => a.cheapest_points - b.cheapest_points)
 
 // ── HTML Helpers ─────────────────────────────────────────────────────────────
 function hotelRow(hotel) {
-  const isMarriott = 'points' in hotel
+  const isMarriott = 'cheapest_points' in hotel
   const price = isMarriott
-    ? `<strong>${hotel.points.toLocaleString('en-IN')} pts</strong> <span style="color:#888;font-size:12px">(₹${hotel.cash_price?.toLocaleString('en-IN')} cash)</span>`
-    : `<strong>₹${hotel.price.toLocaleString('en-IN')}</strong>`
+    ? `<strong>${hotel.cheapest_points.toLocaleString('en-IN')} pts</strong> <span style="color:#888;font-size:12px">(₹${hotel.cheapest_cash_price?.toLocaleString('en-IN')} cash)</span>`
+    : `<strong>₹${hotel.cheapest_price.toLocaleString('en-IN')}</strong>`
 
   const brandColor = hotel.brand === 'Taj' ? '#8B1A1A' : hotel.brand === 'SeleQtions' ? '#4A2060' : '#003580'
 
@@ -71,7 +71,9 @@ function section(title, hotels, color, emptyMsg = 'No properties in this range')
 
 // ── Build HTML email ──────────────────────────────────────────────────────────
 const updatedAt = new Date(data.last_updated).toLocaleString('en-IN', { dateStyle: 'long', timeStyle: 'short' })
-const { check_in, check_out } = data.search_params
+const { date_range, days_ahead } = data.search_params
+const check_in = date_range?.from || ''
+const check_out = date_range?.to || ''
 
 const html = `
 <!DOCTYPE html>
@@ -83,7 +85,7 @@ const html = `
     <!-- Header -->
     <div style="background:#1c1612;border-radius:12px;padding:24px 28px;margin-bottom:20px;">
       <h1 style="color:#f5efe8;font-size:22px;font-weight:600;margin:0 0 6px;">🏨 Hotel Deals Digest</h1>
-      <p style="color:#a89880;font-size:13px;margin:0;">Scraped ${updatedAt} · Dates: ${check_in} → ${check_out}</p>
+      <p style="color:#a89880;font-size:13px;margin:0;">Scraped ${updatedAt} · Checked ${days_ahead} nights: ${check_in} → ${check_out}</p>
     </div>
 
     <!-- Summary bar -->
@@ -153,5 +155,5 @@ async function sendEmail() {
 
 sendEmail().catch(err => {
   console.error('❌ Email error:', err.message)
-  process.exit(1)
+  // Don't exit with error — let CI continue to the deploy step
 })
