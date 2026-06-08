@@ -18,6 +18,9 @@ concurrency:
 jobs:
   scrape-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -55,6 +58,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Commit updated hotels-data.json
+        continue-on-error: true
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
